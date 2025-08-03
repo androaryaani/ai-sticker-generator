@@ -139,7 +139,20 @@ const Home: React.FC = () => {
               <div className="bg-red-50 border border-red-200 rounded-xl p-4">
                 <div className="flex items-center space-x-3">
                   <AlertCircle className="w-5 h-5 text-red-600" />
-                  <p className="text-red-800">{error}</p>
+                  <div className="flex-1">
+                    <p className="text-red-800 font-medium mb-2">{error}</p>
+                    {error.includes('Network error') && (
+                      <div className="text-red-700 text-sm space-y-1">
+                        <p className="font-medium">Troubleshooting steps:</p>
+                        <ul className="list-disc list-inside space-y-1 ml-2">
+                          <li>Check your internet connection</li>
+                          <li>Disable ad-blockers or browser extensions temporarily</li>
+                          <li>Try a different web browser</li>
+                          <li>Check if you're on a restricted network (corporate/school)</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             )}
