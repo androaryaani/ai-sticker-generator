@@ -10,7 +10,7 @@ export default defineConfig({
         target: 'https://api.replicate.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        secure: true,
+        secure: false,
         headers: {
           'User-Agent': 'Chibi-Sticker-Generator/1.0'
         }
