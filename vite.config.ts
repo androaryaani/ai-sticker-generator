@@ -4,6 +4,19 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.replicate.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        secure: true,
+        headers: {
+          'User-Agent': 'Chibi-Sticker-Generator/1.0'
+        }
+      }
+    }
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },

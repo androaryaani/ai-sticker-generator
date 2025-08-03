@@ -26,7 +26,7 @@ export class ReplicateService {
     }
 
     try {
-      const response = await fetch('https://api.replicate.com/v1/predictions', {
+      const response = await fetch('/api/v1/predictions', {
         method: 'POST',
         headers: {
           'Authorization': `Token ${this.apiKey}`,
@@ -111,7 +111,7 @@ export class ReplicateService {
     const maxAttempts = 60; // 5 minutes max
 
     while (attempts < maxAttempts) {
-      const response = await fetch(`https://api.replicate.com/v1/predictions/${predictionId}`, {
+      const response = await fetch(`/api/v1/predictions/${predictionId}`, {
         headers: {
           'Authorization': `Token ${this.apiKey}`,
         },
