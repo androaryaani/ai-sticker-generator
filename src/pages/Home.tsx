@@ -63,7 +63,12 @@ const Home: React.FC = () => {
       };
       saveGeneratedImage(generatedImage);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Generation failed');
+      console.error('Generation error:', err);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred during generation');
+      }
     } finally {
       setIsGenerating(false);
     }
